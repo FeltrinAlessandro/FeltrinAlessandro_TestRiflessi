@@ -1,15 +1,28 @@
 int pulsante;
 int ledBlu;
-int bazzer;
+int buzzer;
 int led_RGB_Rosso;
 int led_RGB_Verde;
 int tempoTestLed;
 int tempoTestBuzzer;
 void setup() {
-
+  pulsante=3;
+  ledBlu=4;
+  buzzer=5;
+  led_RGB_Rosso=8;
+  led_RGB_Verde=9;
+  pinMode(pulsante,INPUT);
+  pinMode(ledBlu,OUTPUT);
+  pinMode(buzzer,OUTPUT);
+  pinMode(led_RGB_Rosso,OUTPUT);
+  pinMode(led_RGB_Verde,OUTPUT);
+  Serial.begin(9600);
 }
 void loop() {
-
+  PremiPulsante();
+  tempoTestLed=Test(ledBlu,"Il risultato del test visivo è:");
+  tempoTestBuzzer=Test(ledBlu,"Il risultato del test uditivo è:");
+  AnalizzatoreRisultati();
 }
 
 void PremiPulsante()
