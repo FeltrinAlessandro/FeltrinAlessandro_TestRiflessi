@@ -24,7 +24,7 @@ void PremiPulsante()
   }
 }
 
-int Test(int device)
+int Test(int device,String messaggio)
 {
   int primoTempo;
   int secondoTempo;
@@ -36,5 +36,21 @@ int Test(int device)
   digitalWrite(device,LOW);
   secondoTempo=millis();
   tempoTest=secondoTempo-primoTempo;
+  Serial.println(messaggio + String (tempoTest));
   return tempoTest;
+}
+
+void AnalizzatoreRisultati()
+{
+  if(tempoTestLed<250 && tempoTestBuzzer<250)
+  {  
+    digitalWrite(led_RGB_Verde,HIGH);
+  }
+  else
+  {
+    digitalWrite(led_RGB_Rosso,HIGH);
+  }
+  delay(5000);
+  digitalWrite(led_RGB_Verde,LOW);
+  digitalWrite(led_RGB_Rosso,LOW);
 }
