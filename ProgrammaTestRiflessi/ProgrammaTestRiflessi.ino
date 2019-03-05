@@ -22,7 +22,7 @@ void loop() {
   PremiPulsante();
   tempoTestLed=Test(ledBlu,"Il risultato del test visivo è:");
   tempoTestBuzzer=Test(ledBlu,"Il risultato del test uditivo è:");
-  AnalizzatoreRisultati();
+  AnalizzatoreRisultati(5000,tempoTestLed,tempoTestBuzzer,led_RGB_Verde,led_RGB_Rosso);
 }
 
 void PremiPulsante()
@@ -53,17 +53,17 @@ int Test(int device,String messaggio)
   return tempoTest;
 }
 
-void AnalizzatoreRisultati()
+void AnalizzatoreRisultati(int valoreDelay,int primoTempo,int secondoTempo,int testSuperato,int testNonSuperato)
 {
-  if(tempoTestLed<250 && tempoTestBuzzer<250)
+  if(primoTempo<250 && secondoTempo<250)
   {  
-    digitalWrite(led_RGB_Verde,HIGH);
+    digitalWrite(testSuperato,HIGH);
   }
   else
   {
-    digitalWrite(led_RGB_Rosso,HIGH);
+    digitalWrite(testNonSuperato,HIGH);
   }
-  delay(5000);
-  digitalWrite(led_RGB_Verde,LOW);
-  digitalWrite(led_RGB_Rosso,LOW);
+  delay(valoreDelay);
+  digitalWrite(testSuperato,LOW);
+  digitalWrite(testNonSuperato,LOW);
 }
