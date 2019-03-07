@@ -5,12 +5,14 @@ int led_RGB_Rosso;
 int led_RGB_Verde;
 int tempoTestLed;
 int tempoTestBuzzer;
+int statuspulsante;
 void setup() {
   pulsante=3;
   ledBlu=4;
   buzzer=5;
   led_RGB_Rosso=8;
   led_RGB_Verde=9;
+  statuspulsante=0;
   pinMode(pulsante,INPUT);
   pinMode(ledBlu,OUTPUT);
   pinMode(buzzer,OUTPUT);
@@ -28,9 +30,10 @@ void loop() {
 void PremiPulsante()
 {
   bool finito=false;
+  statuspulsante=digitalRead(pulsante);
   while(!finito)
   {
-    if(pulsante==HIGH)
+    if(statuspulsante==HIGH)
     {
       finito=true;
     }
