@@ -23,7 +23,7 @@ void setup() {
 void loop() {
   PremiPulsante();
   tempoTestLed=Test(ledBlu,"Il risultato del test visivo è:");
-  tempoTestBuzzer=Test(ledBlu,"Il risultato del test uditivo è:");
+  tempoTestBuzzer=Test(buzzer,"Il risultato del test uditivo è:");
   AnalizzatoreRisultati(5000,tempoTestLed,tempoTestBuzzer,led_RGB_Verde,led_RGB_Rosso);
 }
 
