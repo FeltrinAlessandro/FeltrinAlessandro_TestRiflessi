@@ -5,14 +5,12 @@ int led_RGB_Rosso;
 int led_RGB_Verde;
 int tempoTestLed;
 int tempoTestBuzzer;
-int statuspulsante;
 void setup() {
   pulsante=3;
   ledBlu=4;
   buzzer=5;
   led_RGB_Rosso=8;
   led_RGB_Verde=9;
-  statuspulsante=0;
   pinMode(pulsante,INPUT);
   pinMode(ledBlu,OUTPUT);
   pinMode(buzzer,OUTPUT);
@@ -30,10 +28,9 @@ void loop() {
 void PremiPulsante()
 {
   bool finito=false;
-  statuspulsante=digitalRead(pulsante);
   while(!finito)
   {
-    if(statuspulsante==HIGH)
+    if(digitalRead(pulsante)==HIGH)
     {
       finito=true;
     }
@@ -58,7 +55,7 @@ int Test(int device,String messaggio)
 
 void AnalizzatoreRisultati(int valoreDelay,int primoTempo,int secondoTempo,int testSuperato,int testNonSuperato)
 {
-  if(primoTempo<250 && secondoTempo<250)
+  if(primoTempo<350 && secondoTempo<350)
   {  
     digitalWrite(testSuperato,HIGH);
   }
