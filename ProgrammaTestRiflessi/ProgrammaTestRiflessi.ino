@@ -25,7 +25,7 @@ void loop() {
   AnalizzatoreRisultati(5000,tempoTestLed,tempoTestBuzzer,led_RGB_Verde,led_RGB_Rosso);
 }
 
-void PremiPulsante()
+void PremiPulsante()//Metodo che termina quando premi il pulsante
 {
   bool finito=false;
   while(!finito)
@@ -37,7 +37,7 @@ void PremiPulsante()
   }
 }
 
-int Test(int device,String messaggio)
+int Test(int device,String messaggio)//Metodo che permette di fare il test con il led e con il buzzer
 {
   int primoTempo;
   int secondoTempo;
@@ -53,7 +53,7 @@ int Test(int device,String messaggio)
   return tempoTest;
 }
 
-void AnalizzatoreRisultati(int valoreDelay,int primoTempo,int secondoTempo,int testSuperato,int testNonSuperato)
+void AnalizzatoreRisultati(int valoreDelay,int primoTempo,int secondoTempo,int testSuperato,int testNonSuperato)//Analizza i risultati e controlla se hai passato il test
 {
   if(primoTempo<350 && secondoTempo<350)
   {  
